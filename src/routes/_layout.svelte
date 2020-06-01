@@ -1,22 +1,62 @@
-<script>
-	import Nav from '../components/Nav.svelte';
+<script context="module">
+  export async function preload() {
+    const menu = await this.fetch("api/menu").then(res => res.json());
+    const { menuItems } = (menu && menu.data && menu.data.menu) || [];
+    return { menuItems };
+  }
+</script>
 
-	export let segment;
+<script>
+  import { setContext, onMount } from "svelte";
+  import { setTheme } from "../themes";
+  import BackgroundLink from "../components/BackgroundLink.svelte";
+  import LogoMenu from "../components/LogoMenu.svelte";
+  import Content from "../components/Content.svelte";
+
+  export let segment;
+  export let menuItems;
+  
+  setContext("menuItems", menuItems);
+  onMount(() => setTheme());
 </script>
 
 <style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
+  .logo-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+
+  nav {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background-color: #fff;
+  }
 </style>
 
-<Nav {segment}/>
+<svelte:head>
+  <title>akerlof.se</title>
+</svelte:head>
 
-<main>
-	<slot></slot>
-</main>
+<nav>
+  {#each menuItems as { label, slug, image }}
+    <BackgroundLink img={image.url} href={slug} {segment}>
+      {label}
+    </BackgroundLink>
+  {/each}
+</nav>
+
+<div class="logo-menu">
+  <LogoMenu />
+</div>
+
+{#if segment}
+  <Content>
+    <slot />
+  </Content>
+{/if}
