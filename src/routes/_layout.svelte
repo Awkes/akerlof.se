@@ -1,8 +1,10 @@
 <script context="module">
   export async function preload() {
     const menu = await this.fetch("api/menu").then(res => res.json());
+    const info = await this.fetch("api/info").then(res => res.json());
     const { menuItems } = (menu && menu.data && menu.data.menu) || [];
-    return { menuItems };
+    const { information } = (info && info.data) || {};
+    return { menuItems, information };
   }
 </script>
 
@@ -15,9 +17,18 @@
 
   export let segment;
   export let menuItems;
+  export let information;
   
+  const { firstName, lastName, title, url } = information;
+
   setContext("menuItems", menuItems);
+  setContext("information", information);
   onMount(() => setTheme());
+
+  function activePage() {
+    const { label } = menuItems.find(item => item.slug === segment) || {};
+    return label || '';
+  }
 </script>
 
 <style>
@@ -40,7 +51,9 @@
 </style>
 
 <svelte:head>
-  <title>akerlof.se</title>
+  <title>
+    {firstName} {lastName} - {title}{segment !== undefined ? `: ${activePage()}` : ''} | {new URL(url).host} 
+  </title>
 </svelte:head>
 
 <nav>
