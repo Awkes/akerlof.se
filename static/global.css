@@ -3,11 +3,12 @@
 :root {
 	--main-font: 'Boogaloo';
 	--link-font: 'Bangers';
-	--primary: #009DCF;
-	--primary-trans: rgba(0, 157, 207, 0.75);
 	--font-big: 60px;
 	--font-medium: 40px;
-	--font-small: 20px;
+	--font-small: 30px;
+	--font-smallest: 20px;
+	--primary: #fff;
+	--primary-trans: transparent;
 }
 
 * { box-sizing: border-box; }
@@ -18,4 +19,9 @@ body {
 	font-size: var(--font-small);
 	color: #fff;
 	background-color: #000;
+}
+
+#sapper {
+	position: relative;
+	min-width: 380px;
 }
