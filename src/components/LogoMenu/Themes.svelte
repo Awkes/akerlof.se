@@ -4,12 +4,6 @@
   function selectTheme(e) {
     setTheme(e.target.dataset.themeIndex);
   }
-
-  // function positionThemeBtn(i) {
-  //   return i < Math.ceil(themes.length / 2)
-  //     ? (Math.ceil(themes.length / 2) - i - 1) * 20
-  //     : (i - Math.floor(themes.length / 2)) * 20;
-  // }
 </script>
 
 <style>

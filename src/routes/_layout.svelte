@@ -32,7 +32,7 @@
 
 <style>
   .logo-menu {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -46,6 +46,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     background-color: #fff;
+    position: fixed;
   }
 </style>
 
