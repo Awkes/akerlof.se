@@ -7,6 +7,8 @@
 </script>
 
 <script>
+  import { fade } from 'svelte/transition';
+
   export let text;
   export let image;
 </script>
@@ -36,7 +38,7 @@
   }
 </style>
 
-<div class="about">
+<div class="about" transition:fade>
   <img src={image.url} alt={image.alt} class="image" />
   <div>{@html text}</div>
 </div>
