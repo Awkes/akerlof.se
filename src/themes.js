@@ -8,8 +8,16 @@ export const themes = [
 	  primaryTrans: 'rgba(0, 255, 0, 0.75)',
   },
   {
+    primary: '#0ff',
+	  primaryTrans: 'rgba(0, 255, 255, 0.75)',
+  },
+  {
+    primary: '#ff0',
+	  primaryTrans: 'rgba(255, 255, 0, 0.75)',
+  },
+  {
     primary: '#f0f',
-    primaryTrans: 'rgba(255, 0, 255, 0.75'
+    primaryTrans: 'rgba(255, 0, 255, 0.75)'
   }
 ]
 

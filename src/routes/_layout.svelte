@@ -12,7 +12,7 @@
   import { setContext, onMount } from "svelte";
   import { setTheme } from "../themes";
   import BackgroundLink from "../components/BackgroundLink.svelte";
-  import LogoMenu from "../components/LogoMenu.svelte";
+  import LogoMenu from "../components/LogoMenu";
   import Content from "../components/Content.svelte";
 
   export let segment;
@@ -22,7 +22,6 @@
   const { firstName, lastName, title, url } = information;
 
   setContext("menuItems", menuItems);
-  setContext("information", information);
   onMount(() => setTheme());
 
   function activePage() {
@@ -65,7 +64,7 @@
 </nav>
 
 <div class="logo-menu">
-  <LogoMenu />
+  <LogoMenu text={`${firstName} ${lastName} - ${title}`} />
 </div>
 
 {#if segment}
