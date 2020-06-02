@@ -45,7 +45,7 @@
     color: #fff;
     text-decoration: none;
     font-family: var(--link-font);
-    font-size: var(--font-medium);
+    font-size: var(--font-small);
     letter-spacing: 6px;
     display: flex;
     align-items: center;
@@ -62,7 +62,7 @@
 
   @media (min-width: 600px) and (min-height: 600px) {
     .link {
-      font-size: var(--font-big);
+      font-size: var(--font-medium);
     }
   }
 
