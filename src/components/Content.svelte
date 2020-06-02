@@ -32,13 +32,13 @@
     margin-right: 20px;
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 400px) and (min-height: 400px) {
     .logo {
       width: 75px;
     }
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 600px) and (min-height: 600px) {
     .logo {
       width: 100px;
     }
