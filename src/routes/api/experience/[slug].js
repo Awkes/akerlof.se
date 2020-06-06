@@ -1,10 +1,10 @@
 import api from '../_api';
 
 export async function get(req, res) {
-  const { id } = req.params;
+  const { slug } = req.params;
   api(res, `
     query MyQuery {
-      experience(filter: {id: {eq: "${id}"}}) {
+      experience(filter: {slug: {eq: "${slug}"}}) {
         name
         icon {
           url
