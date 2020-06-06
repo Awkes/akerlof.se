@@ -14,10 +14,6 @@
 </script>
 
 <style>
-  .about {
-    padding: 0 50px;
-  }
-
   .image { 
     width: 100%;
     height: 500px;
@@ -38,7 +34,7 @@
   }
 </style>
 
-<div class="about" transition:fade>
+<div in:fade>
   <img src={image.url} alt={image.alt} class="image" />
   <div>{@html text}</div>
 </div>
