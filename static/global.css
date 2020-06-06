@@ -21,3 +21,10 @@ body {
 	color: #fff;
 	background-color: #000;
 }
+
+a { 
+	color: #fff; 
+	transition: ease-in-out .2s;  
+}
+
+a:hover { color: var(--primary); }
