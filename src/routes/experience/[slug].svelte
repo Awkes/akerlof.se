@@ -1,7 +1,7 @@
 <script context="module">
   export async function preload(page) {
-    const { id } = page.params;
-    const { data } = await this.fetch(`api/experience/${id}`).then(res => res.json());
+    const { slug } = page.params;
+    const { data } = await this.fetch(`api/experience/${slug}`).then(res => res.json());
     const { name, icon, description } = (data && data.experience) || {};
     return { name, icon, description };
   }

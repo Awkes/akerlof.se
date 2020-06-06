@@ -9,7 +9,7 @@ export async function get(req, res) {
           url
           alt
         }
-        id
+        slug
         name
       }
     }

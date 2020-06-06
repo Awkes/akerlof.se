@@ -1,6 +1,6 @@
 <script context="module">
   export async function preload() {
-    const { data } = await this.fetch("api/experience").then(res => res.json()); 
+    const { data } = await this.fetch("api/experiences").then(res => res.json()); 
     const { allExperiences: experience } = data || {};
     return { experience };
   }
@@ -46,9 +46,9 @@
 </style>
 
 <div class="experience" in:fade>
-  {#each experience as { icon, name, id }}
+  {#each experience as { icon, name, slug }}
     <Tooltip text={name}>
-      <a href={`experience/${id}`}>
+      <a href={`experience/${slug}`}>
         <img src={icon.url} alt={icon.alt} class="icon" />
       </a>
     </Tooltip>
