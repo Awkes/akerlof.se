@@ -18,8 +18,6 @@
       header.style.boxShadow = ''; 
       header.style.backgroundColor = ''
     }
-      // ? header.style.backgroundImage = 'linear-gradient(0deg, transparent, #000, #000, #000, #000)'
-      // : header.style.backgroundImage = '';
   }
 
   onMount(() => {
@@ -52,16 +50,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     padding: 20px 20px 10px 20px;
     margin: 0 auto;
   }
   
   header, main { 
+    width: 100%;
     max-width: var(--max-width); 
   }
 
-  main { padding-top: 120px; }
+  main { padding: 120px 50px; }
 
   .logo {
     display: block;
@@ -71,12 +69,12 @@
   }
 
   @media (min-width: 400px) and (min-height: 400px) {
-    main { padding-top: 150px; }
+    main { padding: 150px 50px; }
     .logo { width: 75px; }
   }
 
   @media (min-width: 600px) and (min-height: 600px) {
-    main { padding-top: 170px; }
+    main { padding: 170px 100px; }
     .logo { width: 100px; }
   }
 </style>
