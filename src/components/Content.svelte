@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { fade } from "svelte/transition";
   import Logo from "./Logo.svelte";
   import Menu from "./Menu.svelte";
@@ -9,21 +9,28 @@
 
   function setHeaderBg() {
     const headerHeight = header.scrollHeight;
-    const mainPadding = parseInt(window.getComputedStyle(main).getPropertyValue('padding-top'));
+    const mainPadding = parseInt(
+      window.getComputedStyle(main).getPropertyValue("padding-top")
+    );
     if (window.pageYOffset >= mainPadding - headerHeight) {
-      header.style.boxShadow = '0px 10px 10px #000';
+      header.style.boxShadow = "0px 10px 10px #000";
       header.style.backgroundColor = "#000";
-    }
-    else { 
-      header.style.boxShadow = ''; 
-      header.style.backgroundColor = ''
+    } else {
+      header.style.boxShadow = "";
+      header.style.backgroundColor = "";
     }
   }
 
   onMount(() => {
-    window.addEventListener('scroll', setHeaderBg)
+    window.addEventListener("scroll", setHeaderBg);
     setHeaderBg();
   });
+
+  onDestroy(
+    () =>
+      typeof window !== "undefined" &&
+      window.removeEventListener("scroll", setHeaderBg)
+  );
 </script>
 
 <style>
@@ -37,13 +44,14 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
   }
-  
+
   .header-container {
     position: fixed;
     top: 0;
     width: 100%;
     margin: 0 -5px;
-    transition: ease-in-out .1s;
+    transition: ease-in-out 0.1s;
+    z-index: 200;
   }
 
   header {
@@ -53,13 +61,16 @@
     padding: 20px 20px 10px 20px;
     margin: 0 auto;
   }
-  
-  header, main { 
+
+  header,
+  main {
     width: 100%;
-    max-width: var(--max-width); 
+    max-width: var(--max-width);
   }
 
-  main { padding: 120px 50px; }
+  main {
+    padding: 120px 50px;
+  }
 
   .logo {
     display: block;
@@ -69,13 +80,21 @@
   }
 
   @media (min-width: 400px) and (min-height: 400px) {
-    main { padding: 150px 50px; }
-    .logo { width: 75px; }
+    main {
+      padding: 150px 50px;
+    }
+    .logo {
+      width: 75px;
+    }
   }
 
   @media (min-width: 600px) and (min-height: 600px) {
-    main { padding: 170px 100px; }
-    .logo { width: 100px; }
+    main {
+      padding: 170px 100px;
+    }
+    .logo {
+      width: 100px;
+    }
   }
 </style>
 
