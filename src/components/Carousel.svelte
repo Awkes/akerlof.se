@@ -1,17 +1,17 @@
 <script>
-  import { onMount, onDestroy } from 'svelte';
+  import { afterUpdate, onMount, onDestroy } from 'svelte';
   import Icon from "fa-svelte";
   import {
     faChevronLeft,
     faChevronRight
   } from "@fortawesome/free-solid-svg-icons";
 
+  export let active = 0;
   let items;
-  let active = 0;
   let isScrolling;
 
-  function scrollTo(index) {
-    items.scrollTo({ left: items.children[index].offsetLeft, behavior: 'smooth' });
+  function scrollTo(index, behavior = 'smooth') {
+    items.scrollTo({ left: items.children[index].offsetLeft, behavior });
   }
 
   function handlePrevClick(e) {
@@ -34,7 +34,11 @@
     }, 50);
   }
 
-  onMount(() => items.addEventListener('scroll', setActiveItem));
+  onMount(() => {
+    items.addEventListener('scroll', setActiveItem);
+    scrollTo(active, 'auto');
+  });
+  
   onDestroy(() => items && items.removeEventListener('scroll', setActiveItem));
 </script>
 

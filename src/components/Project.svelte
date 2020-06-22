@@ -1,14 +1,20 @@
 <script>
-  import ProjectInfo from './ProjectInfo.svelte';
+  import { onMount } from "svelte";
+  import { activeProject } from "../stores";
+  import ProjectInfo from "./ProjectInfo.svelte";
 
   export let project;
+  export let index;
+  let link;
   const { screenshot, slug } = project;
+
+  onMount(() => link.addEventListener("click", () => activeProject.set(index)));
 </script>
 
 <style>
   .project {
     position: relative;
-    border: 1px solid var(--primary); 
+    border: 1px solid var(--primary);
     overflow: hidden;
     display: block;
     width: 100%;
@@ -32,17 +38,23 @@
   }
 
   @media (min-width: 1000px) {
-    .project { height: 700px; }
-    .info { display: initial; }
-    .project:hover .info { transform: translateY(0); }
+    .project {
+      height: 700px;
+    }
+    .info {
+      display: initial;
+    }
+    .project:hover .info {
+      transform: translateY(0);
+    }
   }
 </style>
 
-<a 
-  class="project" 
-  href={`projects/${slug}`} 
+<a
+  class="project"
+  href={`projects/${slug}`}
   style={`background-image: url(${screenshot.url})`}
->
+  bind:this={link}>
   <div class="info">
     <ProjectInfo {project} />
   </div>
