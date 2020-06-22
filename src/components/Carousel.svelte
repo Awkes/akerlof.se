@@ -151,14 +151,14 @@
       <Icon icon={faChevronRight} />
     </button>
   {/if}
-  <div class="bullets">
-    {#if items}
-      {#each items.children as item, i}
-        <button
-          type="button"
-          class={active === i ? 'bullet bullet-active' : 'bullet'}
-          on:click={() => scrollTo(i)} />
-      {/each}
-    {/if}
-  </div>
+</div>
+<div class="bullets">
+  {#if items}
+    {#each items.children as item, i}
+      <button
+        type="button"
+        class={active === i ? 'bullet bullet-active' : 'bullet'}
+        on:click={() => scrollTo(i)} />
+    {/each}
+  {/if}
 </div>
