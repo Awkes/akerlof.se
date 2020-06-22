@@ -4,6 +4,7 @@
 
 <style>
   .tooltip {
+    display: inline-block;
     position: relative;
     width: fit-content;
   }
@@ -33,6 +34,7 @@
     padding: 5px 10px;
     border-radius: 3px;
     text-align: center;
+    font-size: var(--font-small);
     background-color: var(--primary-trans);
     transition: ease-in-out .2s;
     z-index: 99;
