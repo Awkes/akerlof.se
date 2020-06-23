@@ -1,21 +1,40 @@
 <script>
+  import { stores } from "@sapper/app";
+  import { onDestroy } from "svelte";
   import Logo from "../Logo.svelte";
   import Heading from "./Heading.svelte";
   import Themes from "./Themes.svelte";
 
   export let text;
+  let logo;
+  let deg = 0;
+
+  function rotateLogo() {
+    deg = deg === 0 ? 720 : 0;
+    if (logo) logo.style = `transform: rotate(${deg}deg)`;
+  }
+
+  const { page } = stores();
+  const unsubscribe = page.subscribe(() => rotateLogo());
+  onDestroy(unsubscribe);
 </script>
 
 <style>
-  .container, .menu, .logo {
+  .container,
+  .menu,
+  .logo {
     border-radius: 50%;
     transition: ease-in-out 0.2s;
   }
 
   .container,
-  .logo { width: 150px; }
+  .logo {
+    width: 150px;
+    transition: ease-in-out 0.5s;
+  }
 
-  .menu, .logo {
+  .menu,
+  .logo {
     position: absolute;
     overflow: hidden;
   }
@@ -49,13 +68,24 @@
     background-color: #000;
   }
 
-  .container:hover .logo { border-color: var(--primary); }
-  .container:hover .logo :global(circle) { stroke: var(--primary) !important; }
-  .container:hover .logo :global(path) { fill: var(--primary) !important; }
+  .container:hover .logo {
+    border-color: var(--primary);
+  }
+  .container:hover .logo :global(circle) {
+    stroke: var(--primary) !important;
+  }
+  .container:hover .logo :global(path) {
+    fill: var(--primary) !important;
+  }
 
   @media (min-width: 500px) and (min-height: 500px) {
-    .container, .logo { width: 300px; }
-    .container { height: 300px; }
+    .container,
+    .logo {
+      width: 300px;
+    }
+    .container {
+      height: 300px;
+    }
 
     .menu {
       width: 400px;
@@ -69,7 +99,7 @@
     <Heading>{text}</Heading>
     <Themes />
   </div>
-  <div class="logo">
+  <div class="logo" bind:this={logo}>
     <Logo />
   </div>
 </div>
