@@ -29,7 +29,7 @@
     isScrolling = setTimeout(() => {
       active = Array.prototype.findIndex.call(
         items.children,
-        el => el.offsetLeft === items.scrollLeft
+        el => el.offsetLeft === Math.round(items.scrollLeft)
       );
     }, 50);
   }
@@ -38,7 +38,7 @@
     items.addEventListener('scroll', setActiveItem);
     scrollTo(active, 'auto');
   });
-  
+
   onDestroy(() => items && items.removeEventListener('scroll', setActiveItem));
 </script>
 
