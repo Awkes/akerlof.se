@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&display=swap');
+
+:root {
+	--main-font: 'Boogaloo';
+	--link-font: 'Bangers';
+	--font-big: 60px;
+	--font-medium: 40px;
+	--font-small: 30px;
+	--font-smallest: 20px;
+	--primary: #fff;
+	--primary-trans: transparent;
+	--max-width: 1400px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	font-family: var(--main-font);
+	font-size: var(--font-small);
+	color: #fff;
+	background-color: #000;
+}
+
+a { 
+	color: #fff; 
+	transition: ease-in-out .2s;  
+}
+
+a:hover { color: var(--primary); }
