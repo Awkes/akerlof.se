@@ -9,17 +9,12 @@
 
 <script>
   import { fade } from "svelte/transition";
-  import marked from "marked";
   import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
   import Icon from "fa-svelte";
 
   export let name;
   export let icon;
   export let description;
-
-  const renderer = new marked.Renderer();
-  renderer.link = (href, title, text) =>
-    `<a href="${href}" ${title ? `title="${title}"` : ''} target="_blank">${text}</a>`;
 </script>
 
 <style>
@@ -52,7 +47,7 @@
 <div in:fade>
   <img src={icon.url} alt={icon.alt} class="icon" />
   <h3 class="heading">{name}</h3>
-  {@html marked(description, { renderer })}
+  {@html description}
   <div class="back">
     <a href="/experience" class="back-link">
       <Icon icon={faArrowAltCircleLeft} />
