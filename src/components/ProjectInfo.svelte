@@ -1,5 +1,4 @@
 <script>
-  import marked from "marked";
   import { faCode, faGlobeEurope } from "@fortawesome/free-solid-svg-icons";
   import Icon from "fa-svelte";
   import Tooltip from "./Tooltip.svelte";
@@ -39,7 +38,7 @@
 <div class="info">
   <h2 class="title">{title}</h2>
   <div class="description">
-    {@html marked(description)}
+    {@html description}
   </div>
   <div class="links">
     {#if repositoryUrl}

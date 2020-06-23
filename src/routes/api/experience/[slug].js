@@ -10,7 +10,7 @@ export async function get(req, res) {
           url
           alt
         }
-        description
+        description(markdown: true)
       }
     }
   `)  
