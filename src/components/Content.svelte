@@ -69,7 +69,7 @@
   }
 
   main {
-    padding: 120px 50px;
+    padding: 120px 20px;
   }
 
   .logo {
