@@ -8,6 +8,7 @@ export async function get(req, res) {
         firstName
         lastName
         url
+        footer
       }
     }
   `)  
