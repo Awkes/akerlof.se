@@ -42,7 +42,7 @@
 
   nav {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1px;

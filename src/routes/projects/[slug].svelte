@@ -40,7 +40,7 @@
 
 <div class="content" in:fade>
   <a href={siteUrl} target="_blank">
-    <img src={screenshot.url} alt={screenshot.alt} class="image" />
+    <img src={screenshot.url} alt={screenshot.alt || ''} class="image" />
   </a>
   <ProjectInfo {project} />
   <div class="back">
