@@ -45,7 +45,7 @@
 </style>
 
 <div in:fade>
-  <img src={icon.url} alt={icon.alt} class="icon" />
+  <img src={icon.url} alt={icon.alt || ''} class="icon" />
   <h3 class="heading">{name}</h3>
   {@html description}
   <div class="back">

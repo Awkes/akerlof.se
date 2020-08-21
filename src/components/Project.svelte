@@ -37,10 +37,18 @@
     transition: transform ease-in-out 0.2s;
   }
 
+  .link {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
   @media (min-width: 1000px) {
     .project {
       height: 700px;
     }
+
     .info {
       display: initial;
     }
@@ -50,12 +58,9 @@
   }
 </style>
 
-<a
-  class="project"
-  href={`projects/${slug}`}
-  style={`background-image: url(${screenshot.url})`}
-  bind:this={link}>
+<div class="project" style={`background-image: url(${screenshot.url})`}>
+  <a class="link" href={`projects/${slug}`} bind:this={link}><div /></a>
   <div class="info">
     <ProjectInfo {project} />
   </div>
-</a>
+</div>
