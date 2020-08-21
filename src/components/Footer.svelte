@@ -22,6 +22,7 @@
       border-left: 1px solid #fff;
       border-top-left-radius: 50px;
       width: fit-content;
+      width: -moz-fit-content;
     }
   }
 
