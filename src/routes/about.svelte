@@ -35,7 +35,7 @@
 </style>
 
 <div in:fade>
-  <img src={image.url} alt={image.alt} class="image" />
+  <img src={image.url} alt={image.alt || ''} class="image" />
   <div>{@html text}</div>
 </div>
 

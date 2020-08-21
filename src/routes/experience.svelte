@@ -49,7 +49,7 @@
   {#each experience as { icon, name, slug }}
     <Tooltip text={name}>
       <a href={`experience/${slug}`}>
-        <img src={icon.url} alt={icon.alt} class="icon" />
+        <img src={icon.url} alt={icon.alt || ''} class="icon" />
       </a>
     </Tooltip>
   {/each}

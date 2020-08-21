@@ -111,7 +111,7 @@
       {#each socialMediaLinks as { name, link, icon }}
         <Tooltip text={name}>
           <a href={link} target="_blank">
-            <img src={icon.url} alt={name} class="icon" />
+            <img src={icon.url} alt={name || ''} class="icon" />
           </a>
         </Tooltip>
       {/each}
