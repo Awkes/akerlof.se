@@ -118,6 +118,7 @@
     border: 0;
     outline: 0;
     cursor: pointer;
+    background-color: #fff;
   }
 
   .bullet-active {
