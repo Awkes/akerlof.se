@@ -49,11 +49,11 @@
     letter-spacing: 6px;
     display: flex;
     align-items: center;
-    transition: ease-in-out .2s;
+    transition: ease-in-out 0.2s;
   }
 
-  .link:not(.active):hover { 
-    text-shadow: 0 0 10px var(--primary); 
+  .link:not(.active):hover {
+    text-shadow: 0 0 10px var(--primary);
     filter: drop-shadow(0 0 10px var(--primary));
   }
 
@@ -96,7 +96,8 @@
       <li>
         <a
           href={slug}
-          class={$page.path.split('/')[1] === slug ? 'link active' : 'link'}>
+          class={$page.path.split('/')[1] === slug ? 'link active' : 'link'}
+          rel="prefetch">
           <Icon icon={getIcon(slug)} />
           <span class="text">{label}</span>
         </a>
