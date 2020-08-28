@@ -58,7 +58,7 @@
   }
 </style>
 
-<a {href} style="background-image: url('{img}')" class="link">
+<a {href} style="background-image: url('{img}')" class="link" rel="prefetch">
   <div class={segment === href ? 'overlay active' : 'overlay'}>
     <span class="text">
       <slot />
