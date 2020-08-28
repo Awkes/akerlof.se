@@ -49,7 +49,7 @@
   <h3 class="heading">{name}</h3>
   {@html description}
   <div class="back">
-    <a href="/experience" class="back-link">
+    <a href="/experience" class="back-link" rel="prefetch">
       <Icon icon={faArrowAltCircleLeft} />
     </a>
   </div>

@@ -59,7 +59,9 @@
 </style>
 
 <div class="project" style={`background-image: url(${screenshot.url})`}>
-  <a class="link" href={`projects/${slug}`} bind:this={link}><div /></a>
+  <a class="link" href={`projects/${slug}`} bind:this={link} rel="prefetch">
+    <div />
+  </a>
   <div class="info">
     <ProjectInfo {project} />
   </div>

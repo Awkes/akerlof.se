@@ -44,7 +44,7 @@
   </a>
   <ProjectInfo {project} />
   <div class="back">
-    <a href="/projects" class="back-link">
+    <a href="/projects" class="back-link" rel="prefetch">
       <Icon icon={faArrowAltCircleLeft} />
     </a>
   </div>

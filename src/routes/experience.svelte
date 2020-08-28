@@ -48,7 +48,7 @@
 <div class="experience" in:fade>
   {#each experience as { icon, name, slug }}
     <Tooltip text={name}>
-      <a href={`experience/${slug}`}>
+      <a href={`experience/${slug}`} rel="prefetch">
         <img src={icon.url} alt={icon.alt || ''} class="icon" />
       </a>
     </Tooltip>
