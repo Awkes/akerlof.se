@@ -25,8 +25,6 @@
 
     .tooltip:after {
       content: attr(data-text);
-      width: 100%;
-      width: fit-content;
       position: absolute;
       left: calc(50%);
       transform: translateX(-50%) scale(0);
